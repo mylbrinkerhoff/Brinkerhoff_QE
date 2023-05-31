@@ -367,21 +367,35 @@ One of the striking things in this is the lack of high tone with breathy phonati
 
 The vowels from the target words in carrier sentences were annotated in Praat \citep{boersmaPraatDoingPhonetics2021}. Following \citet{garellekAcousticDiscriminabilityComplex2020}, the vowel onset was set to the second glottal pulse following the onset (to avoid high-frequency noise due to noisy click releases), and the vowel offset was set to the last glottal pulse before the drop in amplitude of the following consonant. 
 
-VoiceSauce \citep{shueVOICESAUCEProgramVoice2009} was used to compute the different acoustic measurements across each vowel. Each vowel was resampled at 16kHZ. The fundamental frequency (\textit{f0}) was calculated using STRAIGHT \citep{}.
+VoiceSauce \citep{shueVOICESAUCEProgramVoice2009} was used to compute the different acoustic measurements across each vowel. Each vowel was resampled at 16kHZ. The fundamental frequency (\textit{f0}) was calculated using STRAIGHT \citep{kawaharaInstantaneousfrequencybasedPitchExtraction1998}. Formants and bandwidths where calculated using SNACK \citep{sjolanderSnackSoundToolkit2004}.
 
 A total of 1785 vowels were initially considered for analysis. Outliers were removed based on \textit{f0} and vowel formants distance. A total of 28 vowels whose \textit{f0} had a mahalanobis distance greater than 6 were removed as outliers. An additional 85 vowels were removed as outliers because their F1 and F2 had a standard deviation greater than 3. This resulted in a total of 1672 vowels being used for this analaysis.
 
-Because phonation in SLZ involves dynamic changes (i.e., glottalization occurring in the middle or end of the vowel for laryngealized and checked vowels) each acoustic parameter had three different measurements associated with it. These three measures were: the average over the entire vowel, the change in the parameter from the beginning to the middle of the vowel, and the change in the parameter from the middle of the vowel to the vowel’s end. These last two measurements will be called "delta" measurements. This method is not that unusual and was used by \citet{garellekAcousticDiscriminabilityComplex2020} for the phonation contrasts in !Xóõ.  
+Because phonation in SLZ involves dynamic changes (i.e., glottalization occurring in the middle or end of the vowel for laryngealized and checked vowels) each acoustic parameter had three different measurements associated with it. These three measures are: the average over the entire vowel, the change in the parameter from the beginning to the middle of the vowel, and the change in the parameter from the middle of the vowel to the vowel’s end. These last two measurements will be called ``delta" measurements. This method is not that unusual and was used by \citet{garellekAcousticDiscriminabilityComplex2020} for the phonation contrasts in !Xóõ.  
 
 %------------------------------------
 \section{Results of the linear discriminant analysis} \label{sec:LDAResults}
 %------------------------------------
 
-A Linear Discriminant Analysis (LDA: \cite{fisherUseMultipleMeasurements1936}) is a type of dimension reduction technique in statistics. What this means in practice is that an LDA takes multiple variables as the input to the model and reduces those multiple variables into a few new variables called Linear Discriminants (LD). These LDs are then used to identify which of the original variables have the greatest effect on the data. 
+A Linear Discriminant Analysis (LDA: \cite{fisherUseMultipleMeasurements1936}) is a type of dimension reduction technique in statistics. What this means in practice is that an LDA takes multiple variables as the input to the model and reduces those multiple variables into a few new variables called Linear Discriminant functions (LD). These LDs are then used to identify which of the original variables have the greatest effect on the data. 
 
-In the case of SLZ phonation, each of the different acoustic measurements from \posscitet{kreimanUnifiedTheoryVoice2014} where treated as the variables that the LDA used to determine the new LDs. For the statistical model to not be unduly swayed by large numerical differences in the raw numbers it is standard that all variables are normalized. In this instance, all acoustic measurements proposed by the PMoP were normalized by speaker using a z-score transformation except for the measurements for formants and bandwidths which were normalized by speaker and vowel quality. Strength-of-Excitation (SoE) was normalized by speaker following \citet{garellekVoicingGlottalConsonants2021}. 
+In the case of SLZ phonation, each of the different acoustic measurements from \posscitet{kreimanUnifiedTheoryVoice2014} were treated as the variables that the LDA used to determine the new LDs. For the statistical model to not be unduly swayed by large numerical differences in the raw numbers it is standard that all variables are normalized. In this instance, all acoustic measurements proposed by the PMoP were normalized by speaker using a z-score transformation except for the measurements for formants and bandwidths which were normalized by speaker and vowel quality. Strength-of-Excitation (SoE) was normalized by speaker following \citet{garellekVoicingGlottalConsonants2021}. 
 
-The LDA produced three 
+The LDA produced three linear discriminant functions 
+
+\begin{table}[!h]
+    \centering
+    \caption{Acoustic measures best captured by the three discriminant functions.}
+    \label{tab:HNR25}
+    \begin{tabular}{lll}
+	\lsptoprule
+	LD1  & LD2 & LD3  \\
+	\hline
+    \begin{tabular}[c]{@{}l@{}}HNR \textless 2500 Hz\\ HNR \textless 3500 Hz\\ SoE\end{tabular} & \begin{tabular}[c]{@{}l@{}}HNR \textless 2500 Hz\\ HNR \textless 500 Hz\\ SoE\end{tabular} & \begin{tabular}[c]{@{}l@{}}HNR \textless 2500 Hz\\ HNR \textless 3500 Hz\\ $\Delta$HNR \textless 2500 Hz (end)\end{tabular} \\
+    \lspbottomrule
+    \end{tabular}
+\end{table}
+
 \begin{figure}[!h]
 		\centering
 		\includegraphics[width=\linewidth]{Images/ld1_density.png}
@@ -407,7 +421,65 @@ The LDA produced three
 \subsection{Statistical results on the output of the LDA} \label{sec:Stats}
 %------------------------------------
 
+\begin{table}[!h]
+    \centering
+    \caption{Results of the mixed-effects linear regression analysis for HNR < 2500 Hz.}
+    \label{tab:HNR25}
+    \begin{tabular}{lrrrrrl}
+	\lsptoprule
+					&  Estimate  & Std. Error & df & t value & p-value & \\
+    Modal       	&  0.1347	& 0.0558 & 151.5648 &  2.414 & 0.01696 & * \\  
+  	Breathy   		&  -0.4914 	& 0.1530 &  9.9072  & -3.213 & 0.00939 & ** \\
+	Checked    		&  -0.4669  & 0.1769 &  6.6601  & -2.640 & 0.03499 & * \\
+	Laryngealized	&  -0.1654  & 0.1810 & 17.8292  & -0.914 & 0.37293 & \\
+    \lspbottomrule
+    \end{tabular}
+\end{table}
 
+\begin{table}[!h]
+    \centering
+    \caption{Results of the mixed-effects linear regression analysis for HNR < 500 Hz.}
+    \label{tab:HNR05}
+    \begin{tabular}{lrrrrrl}
+	\lsptoprule
+					&  Estimate  & Std. Error & df & t value & p-value & \\
+    Modal       	&  0.14980  & 0.07553 & 9.64369 &  1.983 & 0.07652 & . \\  
+  	Breathy   		&  -0.05906 & 0.20426 & 6.38671 & -0.289 & 0.78162 &  \\
+	Checked    		&  -0.70904 & 0.16811 & 6.77873 & -4.218 & 0.00424 & ** \\
+	Laryngealized	&  -0.29020 & 0.23947 & 7.58130 & -1.212 & 0.26197 & \\
+    \lspbottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[!h]
+    \centering
+    \caption{Results of the mixed-effects linear regression analysis for SoE.}
+    \label{tab:SOE}
+    \begin{tabular}{lrrrrrl}
+	\lsptoprule
+					&  Estimate  & Std. Error & df & t value & p-value & \\
+    Modal       	&   0.65006  &  0.04328 &  5.33922 & 15.018 & 1.43e-05 & *** \\  
+  	Breathy   		&  -0.11532  &  0.03057 &  7.41179 & -3.772 & 0.006265 & ** \\
+	Checked    		&  -0.11516  &  0.02230 &  9.38943 & -5.165 & 0.000517 & *** \\
+	Laryngealized	&  -0.08573  &  0.03299 & 11.87923 & -2.599 & 0.023424 & * \\
+    \lspbottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[!h]
+    \centering
+    \caption{Results of the mixed-effects linear regression analysis for $ \Delta $ HNR<2500 Hz (end).}
+    \label{tab:SOE}
+    \begin{tabular}{lrrrrrl}
+	\lsptoprule
+					&  Estimate  & Std. Error & df & t value & p-value & \\
+    Modal       	&   -0.02397 &   0.06574  & 32.69794 & -0.365 & 0.71774 & \\  
+  	Breathy   		&    0.12279 &   0.14446  & 11.41768 &  0.850 & 0.41280 & \\
+	Checked    		&    0.32531 &   0.10589  & 41.57481 &  3.072 & 0.00374 & ** \\
+	Laryngealized	&   -0.12616 &   0.27805  &  8.21579 & -0.454 & 0.66176 & \\
+    \lspbottomrule
+    \end{tabular}
+\end{table}
 
 %------------------------------------
 \section{Discussion} \label{sec:Discussion}
