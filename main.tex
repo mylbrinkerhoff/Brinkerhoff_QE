@@ -137,13 +137,13 @@ This work was supported in part by the National Science Foundation under Grant N
 %------------------------------------
 \section{Introduction} \label{sec:Introduction}
 %------------------------------------
-Phonation is a common phenomenon in many of the world's languages. Phonation describes how speakers alter the larynx to produce different sound qualities. Most frequently, the larynx is manipulated to produce sounds that vary from being more breathy or creaky.\footnote{Other types of phonation also exist but are not as frequently employed for linguistic expression (see \cite{eslingVoiceQualityLaryngeal2019} for a detailed discussion on the different phonation types that exist and how the larynx produces them).} In languages such as English, these characteristics are described as being pathological or simply the characteristic of a given speaker (e.g., \cite{klattAnalysisSynthesisPerception1990}). In other languages, these phonation types are used phonemically, like in Gujarati, where vowels can be breathy or modal \citep{fischer-jorgensenPhoneticAnalysisBreathy1968}. This phonemic use of phonation is particularly common in the Oto-Manguean language family from southern Mexico (e.g., \cite{suarezMesoamericanIndianLanguages1983,campbellMesoAmericaLinguisticArea1986,silvermanLaryngealComplexityOtomanguean1997,campbellOtomangueanHistoricalLinguistics2017a,campbellOtomangueanHistoricalLinguistics2017}).
+Non-modal phonation is a common phenomenon in many of the world's languages. Phonation describes how speakers alter the larynx to produce different sound qualities. Most frequently, the larynx is manipulated to produce sounds that vary from being more breathy or creaky.\footnote{Other types of phonation also exist but are not as frequently employed for linguistic expression (see \cite{eslingVoiceQualityLaryngeal2019} for a detailed discussion on the different phonation types that exist and how the larynx produces them).} In languages such as English, these characteristics are described as being pathological or simply the characteristic of a given speaker (e.g., \cite{klattAnalysisSynthesisPerception1990}). In other languages such as Gujarati, these phonation types are used phonemically where vowels can be breathy or modal \citep{fischer-jorgensenPhoneticAnalysisBreathy1968}. This phonemic use of phonation is particularly common in the Oto-Manguean language family from southern Mexico (e.g., \cite{suarezMesoamericanIndianLanguages1983,campbellMesoAmericaLinguisticArea1986,silvermanLaryngealComplexityOtomanguean1997,campbellOtomangueanHistoricalLinguistics2017a,campbellOtomangueanHistoricalLinguistics2017}).
 
 One common problem facing linguists studying phonation is determining the acoustic correlates for these different phonation types. Since \citet{fischer-jorgensenPhoneticAnalysisBreathy1968}, it has been widely assumed that certain markers in the acoustic signal define different types of phonation. The most common measurements invoked are spectral-tilt measurements and harmonics-to-noise ratios. Spectral-tilt measurements typically involve looking at the relative amplitude of different harmonics in the speech signal. Harmonics-to-noise ratios typically involve looking at how much energy there is in that same speech signal and are typically excellent indicators of periodicity. 
 
 Over the years, different authors have proposed different measurements for the phonation types in any given language. For example, \citet{fischer-jorgensenPhoneticAnalysisBreathy1968} proposed that H1-H2, the difference in amplitude between the first and second harmonics, was the best measurement for accounting for the difference between breathy and modal vowels in Gujarati. Because phonation is acoustically multi-dimensional, there are many measurements that researchers can rely on when they research a given phonation system \citep{garellekAcousticDiscriminabilityComplex2020}. This multitude of acoustic measurements presents a challenge for researchers to make cross-comparisons between and come to a common understanding of what defines a phonation type. Additionally, with many measurements, knowing which measurements are important for the production and perception of different phonation types presents a challenge. One question I address in this paper is the challenge of knowing what measurements are most relevant for analyzing the four phonation contrasts in Santiago Laxopa Zapotec, an understudied Northern Zapotec language from Oaxaca, Mexico. 
 
-I address this question within the framework proposed by \citet{kreimanUnifiedTheoryVoice2014}. This framework, which the authors call the \textsc{Psychoacoustic Model for Phonation}, provides researchers with a set of acoustic measures to allow for a standardized way to investigate, compare, and theorize about how phonation is produced and perceived. Further information about this framework is given in Section~\ref{sec:Background}. By using this framework for investigating the phonation contrasts in Santiago Laxopa Zapotec, I contribute to the question of the efficacy of this framework in linguistic research. Following \citet{garellekAcousticDiscriminabilityComplex2020}, I use a linear discriminant analysis \citep{fisherUseMultipleMeasurements1936} to show that the Psychoacoustic Model of Phonation does explain the phonation contrasts in Santiago Laxopa Zapotec. This analysis shows that various harmonic-to-noise ratios and Strength-of-Excitation contribute the greatest amount of information in discriminating the phonation types. 
+I address this question within the framework proposed by \citet{kreimanUnifiedTheoryVoice2014}. This framework, which the authors call the \textsc{Psychoacoustic Model for Phonation}, provides researchers with a set of acoustic measures for a standardized way to investigate, compare, and theorize how phonation is produced and perceived. Further information about this framework is given in Section~\ref{sec:Background}. By using this framework for investigating the phonation contrasts in Santiago Laxopa Zapotec, I contribute to the question of the efficacy of this framework in linguistic research. Following \citet{garellekAcousticDiscriminabilityComplex2020}, I use a linear discriminant analysis \citep{fisherUseMultipleMeasurements1936} to show that the Psychoacoustic Model of Phonation does explain the phonation contrasts in Santiago Laxopa Zapotec. This analysis shows that various harmonic-to-noise ratios and Strength-of-Excitation contribute the greatest amount of information in discriminating the phonation types. 
 
 The rest of this paper is structured as follows. In Section~\ref{sec:Background}, I first present information about phonation and how linguists have attempted to capture these contrasts acoustically. Section~\ref{sec:SLZ} discusses the phonation contrasts in Santiago Laxopa Zapotec. A general discussion about the elicitation methods and how data for this paper has been processed for the linear discriminant analysis follows in Section~\ref{sec:Methods}. I present the results of the linear discriminant analysis in Section~\ref{sec:LDAResults} and discuss these results in Section~\ref{sec:Discussion}.
 
@@ -151,29 +151,26 @@ The rest of this paper is structured as follows. In Section~\ref{sec:Background}
 \section{Background} \label{sec:Background}
 %------------------------------------
 
-It is commonly assumed that the vocal folds, which account for differences in pitch and voicing, are also responsible for differences in phonation. \citet{ladefogedPreliminariesLinguisticPhonetics1971,gordonPhonationTypesCrosslinguistic2001} argued that phonation exists on a single dimension ranging from opened vocal folds to closed vocal folds. The variation in how open or closed the vocal folds correspond to whether or not the sound produced is breathy or creaky. \citet{ladefogedPreliminariesLinguisticPhonetics1971,gordonPhonationTypesCrosslinguistic2001} summarized this assumption in the diagram found in Figure~\ref{fig:Phonation}.
+In studying the phonetics of phonation contrasts, linguists have discovered multiple methods of describing and accounting for those contrasts. One of the primary ways this is accomplished is by using different acoustic markers in the signal. The most frequent type of measurement is spectral-tilt. Spectral-tilt measurements are the difference in amplitude between harmonics. One of the first studies using spectral-tilt was \cite{fischer-jorgensenPhoneticAnalysisBreathy1968}. \citeauthor{fischer-jorgensenPhoneticAnalysisBreathy1968} showed that the difference between the amplitude of the first and second harmonics (H1-H2) could account for the differences between breathy and modal vowels. Indeed, many early studies found these spectral-tilt measurements are particularly useful in languages with complex phonation systems such as Green Hmong \citep{huffmanMeasuresPhonationType1987,andruskiPhonationTypesProduction2000} and Jalapa Mazatec \citep{silvermanPhoneticStructuresJalapa1995,blankenshipTimeCourseBreathiness1997}.
 
-\begin{figure}[!h]
-	\centering
-	\includegraphics[width=.6\textwidth]{Images/Phonation.png}
-	\caption{Simplified one-dimensional model for phonation. Based on \citet{ladefogedPreliminariesLinguisticPhonetics1971,gordonPhonationTypesCrosslinguistic2001}}.
-	\label{fig:Phonation}
-\end{figure}
-
-In addition to this degree of openness, linguists have found that other acoustic measurements correlate to different phonation types. One of the primary ways to measure and investigate phonation is using spectral measures. The most frequent type of measurement is spectral-tilt. Spectral-tilt measurements are when you take the relative amplitude of different harmonics and subtract them from each other. \cite{fischer-jorgensenPhoneticAnalysisBreathy1968} showed that the difference between the amplitude of the first harmonic (H1) and second harmonic (H2) can account for the differences between breathy and modal vowels. Indeed these spectral-tilt measurements are particularly useful in languages with complex phonation systems such as Green Hmong \citep{huffmanMeasuresPhonationType1987,andruskiPhonationTypesProduction2000} and Jalapa Mazatec \citep{silvermanPhoneticStructuresJalapa1995,blankenshipTimeCourseBreathiness1997}.
-
-Further research has continued to rely primarily on H1-H2, both corrected and uncorrected, to distinguish different types of phonation \citep[e.g.,][]{huffmanMeasuresPhonationType1987,klattAnalysisSynthesisPerception1990}. Further research into spectral-tilt measurements began looking at other measurements besides H1-H2. These include looking at H1 minus the amplitude of the fourth harmonic (H4) or the amplitude of the harmonic closest to the different formants (A\textit{n}). 
-From these studies, several patterns have emerged (see \cite{garellekPhoneticsVoice2019} for an overview). When interpreting the results of these spectral-tilt measures, several general patterns correspond to the different phonation types. For example, vowels produced with a breathy phonation typically have a higher spectral-tilt measurement when compared to vowels produced with modal phonation, and vowels produced with creaky phonation typically have a lower spectral-tilt measurement than modal vowels. 
+Further research has continued to rely primarily on H1-H2 to distinguish different types of phonation \citep[e.g.,][]{huffmanMeasuresPhonationType1987,klattAnalysisSynthesisPerception1990}. Over time, various researchers began experimenting with whether or not the difference between other harmonics besides H1-H2. Over time, other researchers have proposed using other measurements besides H1-H2. These include looking at H2 minus the amplitude of the fourth harmonic (H4) or the amplitude of the harmonic closest to the different formants, which are termed A1 through A\textit{n} where the number corresponds to which formant the harmonic is closest to.  
 
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{Images/Harmonics.png}
-	\caption{Spectral slice with LPC smoothed line overlaid for the vowel [e]. Each of the dark peaks represents the harmonics in the spectral slice. The leftmost black solid line peak is the first harmonic (H1), and each subsequent peak represents the next highest harmonic (H2 through H\textit{n}). The red dotted line represents an LPC smoothed line which identifies the formants by the peaks in the line. Each harmonic closest to the formant peak is identified as A1 through A\textit{n}.}
+	\caption{Spectral slice with LPC smoothed line overlaid for the vowel [e]. Each of the solid peaks represents the harmonics in the spectral slice. The leftmost black solid line peak is the first harmonic (H1), and each subsequent peak represents the next highest harmonic (H2 through H\textit{n}). The red dotted line represents an LPC smoothed line which identifies the formants by the peaks in the line.}
 	\label{fig:Harmonics}
 \end{figure}
 
-In addition to spectral-tilt measurements, noise measurements frequently accompany phonation investigations (e.g., \cite{garellekPhoneticsWhiteHmong2021}). One of the most commonly used of these noise measurements is Cepstral Peak Prominence (CPP; \cite{hillenbrandAcousticCorrelatesBreathy1994,hillenbrandAcousticCorrelatesBreathy1996}). CPP is similar to the harmonics-to-noise ratio measure of \citet{dekromCepstrumBasedTechniqueDetermining1993} but differs in how the ‘prominence’ of the cepstral peak is calculated. Prominence is taken as the difference in amplitude of the cepstral peak, and a regression line is used to normalize window size and overall energy. In interpreting the measurement, a more prominent cepstral peak indicates stronger harmonics above the spectrum floor (i.e., greater periodicity in the speech signal). CPP was originally used as a diagnostic for breathy or modal voice \citep{blankenshipTimingNonmodalPhonation2002,espositoVariationContrastivePhonation2010} In fact, \citeauthor{espositoEffectsLinguisticExperience2010} showed that CPP was the best of the eight measures she considered for distinguishing modal from breathy phonation types. Further research has shown that CPP is also a good measurement for any non-modal phonation (e.g., \cite{andruskiPhonationTypesProduction2000,andruskiToneClarityMixed2006,blankenshipTimingNonmodalPhonation2002,waylandAcousticCorrelatesBreathy2003,avelinoAcousticElectroglottographicAnalyses2010}). 
- 
+From these studies, several patterns have emerged (see \cite{garellekPhoneticsVoice2019} for an overview). When interpreting the results of these spectral-tilt measures, several general patterns correspond to the different phonation types. For example, vowels produced with a breathy phonation typically have a higher spectral-tilt measurement when compared to vowels produced with modal phonation, and vowels produced with creaky phonation typically have a lower spectral-tilt measurement than modal vowels. 
+
+In addition to spectral-tilt measurements, noise measurements frequently accompany phonation investigations (e.g., \cite{garellekPhoneticsWhiteHmong2021}). 
+
+One of the most commonly used of these noise measurements is Cepstral Peak Prominence (CPP; \cite{hillenbrandAcousticCorrelatesBreathy1994,hillenbrandAcousticCorrelatesBreathy1996}). CPP is similar to the harmonics-to-noise ratio measure of \citet{dekromCepstrumBasedTechniqueDetermining1993} but differs in how the ‘prominence’ of the cepstral peak is calculated. Prominence is taken as the difference in amplitude of the cepstral peak, and a regression line is used to normalize window size and overall energy. In interpreting the measurement, a more prominent cepstral peak indicates stronger harmonics above the spectrum floor (i.e., greater periodicity in the speech signal). CPP was originally used as a diagnostic for breathy or modal voice \citep{blankenshipTimingNonmodalPhonation2002,espositoVariationContrastivePhonation2010} In fact, \citeauthor{espositoEffectsLinguisticExperience2010} showed that CPP was the best of the eight measures she considered for distinguishing modal from breathy phonation types. Further research has shown that CPP is also a good measurement for any non-modal phonation (e.g., \cite{andruskiPhonationTypesProduction2000,andruskiToneClarityMixed2006,blankenshipTimingNonmodalPhonation2002,waylandAcousticCorrelatesBreathy2003,avelinoAcousticElectroglottographicAnalyses2010}). 
+
+%------------------------------------
+\subsection{Psychoacoustic Model for Phonation} \label{sec:Background}
+%------------------------------------
 
 \begin{table}[!h]
     \centering
@@ -201,7 +198,7 @@ In addition to spectral-tilt measurements, noise measurements frequently accompa
 \section{Phonation contrasts in Santiago Laxopa Zapotec} \label{sec:SLZ}
 %------------------------------------
 
-Santiago Laxopa Zapotec (SLZ; \textit{Dilla'xhunh Laxup}) is a Northern Zapotec language spoken by approximately 1000 people in the municipality of Santiago Laxopa, Ixtlán District in the Sierra Norte of Oaxaca, Mexico \citep{adlerAcousticsPhonationTypes2016,adlerDerivationVerbInitiality2018,foleyForbiddenCliticClusters2018,foleyExtendingPersonCaseConstraint2020}. It is mutually intelligible with San Bartolomé Zoogocho Zapotec \citep{longDiccionarioZapotecoSan2005,sonnenscheinDescriptiveGrammarSan2005}. SLZ has a fairly standard five-vowel inventory, see Table~\ref{tab:SLZvowels}.
+Santiago Laxopa Zapotec (SLZ; \textit{Dilla'xhunh Laxup}) is a Northern Zapotec language spoken by approximately 1000 people in the municipality of Santiago Laxopa, Ixtlán District in the Sierra Norte of Oaxaca, Mexico \citep{adlerAcousticsPhonationTypes2016,adlerDerivationVerbInitiality2018,foleyForbiddenCliticClusters2018,foleyExtendingPersonCaseConstraint2020}. It is mutually intelligible with San Bartolomé Zoogocho Zapotec \citep{longDiccionarioZapotecoSan2005,sonnenscheinDescriptiveGrammarSan2005}. SLZ has a fairly standard five-vowel inventory; see Table~\ref{tab:SLZvowels}.
 
 \begin{table}[!h]
 \centering
@@ -219,7 +216,9 @@ Santiago Laxopa Zapotec (SLZ; \textit{Dilla'xhunh Laxup}) is a Northern Zapotec 
 \end{table}
 		
 Among Zapotecan languages, it is quite common for languages to make use of contrastive phonation \citep[e.g.,][]{avelinobecerraTopicsYalalagZapotec2004,longDiccionarioZapotecoSan2005,avelinoAcousticElectroglottographicAnalyses2010,lopeznicolasEstudiosFonologiaGramatica2016,chavez-peonInteractionMetricalStructure2010}. 
-SLZ, in addition to the five vowel qualities mentioned above, has four contrastive phonation types: modal, breathy, checked, and laryngealized. These contrasts are exemplified in the minimal quadruple in (\ref{ex:YA}). In representing the checked and laryngealized vowels, I follow the same procedure as other authors (e.g., \citet{avelinoAcousticElectroglottographicAnalyses2010, uchiharaToneRegistrogenesisQuiavini2016}) in representing the `glottal stop' element as a superscript glottal stop in the IPA transcription (i.e., [aˀ]). This is primarily done as a way of standardizing the variable pronunciation of the glottal element in Zapotec, ranging from a full glottal stop (i.e., [aʔ]) to a creaky portion of the vowel (i.e., [aa̰]).  
+SLZ, in addition to the five vowel qualities mentioned above, has four contrastive phonation types: modal, breathy, checked, and laryngealized. These contrasts are exemplified in the minimal quadruple in (\ref{ex:YA}).
+
+In representing the checked and laryngealized vowels, I follow the same procedure as other authors (e.g., \citet{avelinoAcousticElectroglottographicAnalyses2010, uchiharaToneRegistrogenesisQuiavini2016}) in representing the `glottal stop' element as a superscript glottal stop in the IPA transcription (i.e., [aˀ]). This is primarily done as a way of standardizing the variable pronunciation of the glottal element in Zapotec, ranging from a full glottal stop (i.e., [aʔ]) to a creaky portion of the vowel (i.e., [aa̰]).  
 
 \ea \label{ex:YA} Four-way near minimal phonation contrast
     \ea \textit{yag}  /çag\supr{L}/ `tree; wood; almúd (unit of measurement approximately 4kg)'
@@ -228,6 +227,9 @@ SLZ, in addition to the five vowel qualities mentioned above, has four contrasti
     \ex \textit{ya'a}  /çaˀa\supr{L}/  `market'
     \z 
 \z 
+
+
+
 
 Breathy phonation on vowels is characterized by a raspy quality throughout the whole vowel or a portion toward the end of the vowel; see Figure~\ref{fig:BreathyVowel}. 
 
@@ -356,18 +358,44 @@ One of the striking things in this is the lack of high tone with breathy phonati
 \section{Methodology} \label{sec:Methods}
 %------------------------------------
 
-Due to the impact of the COVID-19 pandemic, only two native language speakers of SLZ could participate in this study (one male; one female). Both speakers live in Santa Cruz, CA. The data collection was done remotely using Zencastr\footnote{\href{https://zencastr.com/}{https://zencastr.com/}}, a professional podcasting website (44.1kHz, 16-bit) or in-person outside in a well-ventilated location, using a Zoom H4n handheld recorder (44.1kHz, 16-bit). Participants were recorded saying approximately 100 words in the carrier sentence \textit{shnia' X chone las} `I say X three times'. This phrase was repeated three times. 
+18 native language speakers of SLZ participate in this study (seven male). However, due to issues with annotation, I present data from 6 speakers (three male). All speakers live in Santiago Laxopa Cruz, Ixtlán, Oaxaca, Mexico. The data was collected using a Zoom H4n handheld recorder (44.1kHz, 16-bit). Participants were recorded saying approximately 76 words in isolation, and the carrier sentence \textit{shnia' X chone las} `I say X three times'. This phrase was repeated three times. 
 
-After the elicitations were completed, the audio was uploaded into ELAN \citep{wittenburgELANProfessionalFramework2006} for initial segmentation into sentences. This was followed by segmenting the target vowels in Praat \citep{boersmaPraatDoingPhonetics2021}. These segments were fed into VoiceSauce \citep{shueVOICESAUCEProgramVoice2009}, where each vowel was resampled at 16kHZ for acoustic measurement. The acoustic measurements of VoiceSauce were then analyzed in R \citep{rcoreteamLanguageEnvironmentStatistical2021}. To investigate the effects of phonation on different portions of the vowel, each vowel was normalized for time, and following \citet{garellekAcousticConsequencesPhonation2011}, the resulting measurements were averaged for each third of the vowel. 
+The vowels from the target words in carrier sentences were annotated in Praat \citep{boersmaPraatDoingPhonetics2021}. Following \citet{garellekAcousticDiscriminabilityComplex2020}, the vowel onset was set to the second glottal pulse following the onset (to avoid high-frequency noise due to noisy click releases), and the vowel offset was set to the last glottal pulse before the drop in amplitude of the following consonant. 
+
+To extract the were fed into VoiceSauce \citep{shueVOICESAUCEProgramVoice2009}, where each vowel was resampled at 16kHZ for acoustic measurement. The acoustic measurements of VoiceSauce were then analyzed in R \citep{rcoreteamLanguageEnvironmentStatistical2021}. To investigate the effects of phonation on different portions of the vowel, each vowel was normalized for time, and following \citet{garellekAcousticConsequencesPhonation2011}, the resulting measurements were averaged for each third of the vowel. 
+
+This resulted in a total of 1785 vowels. Vowels with a standard deviation greater than 3 in F1 and F2 were removed. Additionally, vowels 
+This filtering resulted in a total of 1672 vowels being analyzed.
 
 %------------------------------------
 \section{Results of the linear discriminant analysis} \label{sec:LDAResults}
 %------------------------------------
 
+\begin{figure}[!h]
+		\centering
+		\includegraphics[width=\linewidth]{Images/ld1xld2.png}
+		\caption{LD1 by LD2 with a 75\%CI ellipse around the values}
+		\label{fig:LD1LD2}
+\end{figure}
+
+\begin{figure}{!h}
+		\centering
+		\includegraphics[width=\linewidth]{Images/ld1xld3.png}
+		\caption{LD1 by LD3 with a 75\%CI ellipse around the values}
+		\label{fig:LD1LD3}
+\end{figure}
+
+\begin{figure}{!h}
+		\centering
+		\includegraphics[width=\linewidth]{Images/ld2xld3.png}
+		\caption{LD2 by LD3 with a 75\%CI ellipse around the values}
+		\label{fig:LD2LD3}
+\end{figure}
 
 %------------------------------------
 \subsection{Statistical results on the output of the LDA} \label{sec:Stats}
 %------------------------------------
+
 
 
 %------------------------------------
