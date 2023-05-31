@@ -169,8 +169,9 @@ In addition to spectral-tilt measurements, noise measurements frequently accompa
 One of the most commonly used of these noise measurements is Cepstral Peak Prominence (CPP; \cite{hillenbrandAcousticCorrelatesBreathy1994,hillenbrandAcousticCorrelatesBreathy1996}). CPP is similar to the harmonics-to-noise ratio measure of \citet{dekromCepstrumBasedTechniqueDetermining1993} but differs in how the ‘prominence’ of the cepstral peak is calculated. Prominence is taken as the difference in amplitude of the cepstral peak, and a regression line is used to normalize window size and overall energy. In interpreting the measurement, a more prominent cepstral peak indicates stronger harmonics above the spectrum floor (i.e., greater periodicity in the speech signal). CPP was originally used as a diagnostic for breathy or modal voice \citep{blankenshipTimingNonmodalPhonation2002,espositoVariationContrastivePhonation2010} In fact, \citeauthor{espositoEffectsLinguisticExperience2010} showed that CPP was the best of the eight measures she considered for distinguishing modal from breathy phonation types. Further research has shown that CPP is also a good measurement for any non-modal phonation (e.g., \cite{andruskiPhonationTypesProduction2000,andruskiToneClarityMixed2006,blankenshipTimingNonmodalPhonation2002,waylandAcousticCorrelatesBreathy2003,avelinoAcousticElectroglottographicAnalyses2010}). 
 
 %------------------------------------
-\subsection{Psychoacoustic Model for Phonation} \label{sec:Background}
+\subsection{Psychoacoustic Model for Phonation} \label{sec:PMoP}
 %------------------------------------
+
 
 \begin{table}[!h]
     \centering
@@ -360,36 +361,46 @@ One of the striking things in this is the lack of high tone with breathy phonati
 
 18 native language speakers of SLZ participate in this study (seven male). However, due to issues with annotation, I present data from 6 speakers (three male). All speakers live in Santiago Laxopa Cruz, Ixtlán, Oaxaca, Mexico. The data was collected using a Zoom H4n handheld recorder (44.1kHz, 16-bit). Participants were recorded saying approximately 76 words in isolation, and the carrier sentence \textit{shnia' X chone las} `I say X three times'. This phrase was repeated three times. 
 
+%------------------------------------
+\section{Acoustic measurements} \label{sec:Acoustics}
+%------------------------------------
+
 The vowels from the target words in carrier sentences were annotated in Praat \citep{boersmaPraatDoingPhonetics2021}. Following \citet{garellekAcousticDiscriminabilityComplex2020}, the vowel onset was set to the second glottal pulse following the onset (to avoid high-frequency noise due to noisy click releases), and the vowel offset was set to the last glottal pulse before the drop in amplitude of the following consonant. 
 
-To extract the were fed into VoiceSauce \citep{shueVOICESAUCEProgramVoice2009}, where each vowel was resampled at 16kHZ for acoustic measurement. The acoustic measurements of VoiceSauce were then analyzed in R \citep{rcoreteamLanguageEnvironmentStatistical2021}. To investigate the effects of phonation on different portions of the vowel, each vowel was normalized for time, and following \citet{garellekAcousticConsequencesPhonation2011}, the resulting measurements were averaged for each third of the vowel. 
+VoiceSauce \citep{shueVOICESAUCEProgramVoice2009} was used to compute the different acoustic measurements across each vowel. Each vowel was resampled at 16kHZ. The fundamental frequency (\textit{f0}) was calculated using STRAIGHT \citep{}.
 
-This resulted in a total of 1785 vowels. Vowels with a standard deviation greater than 3 in F1 and F2 were removed. Additionally, vowels 
-This filtering resulted in a total of 1672 vowels being analyzed.
+A total of 1785 vowels were initially considered for analysis. Outliers were removed based on \textit{f0} and vowel formants distance. A total of 28 vowels whose \textit{f0} had a mahalanobis distance greater than 6 were removed as outliers. An additional 85 vowels were removed as outliers because their F1 and F2 had a standard deviation greater than 3. This resulted in a total of 1672 vowels being used for this analaysis.
+
+Because phonation in SLZ involves dynamic changes (i.e., glottalization occurring in the middle or end of the vowel for laryngealized and checked vowels) each acoustic parameter had three different measurements associated with it. These three measures were: the average over the entire vowel, the change in the parameter from the beginning to the middle of the vowel, and the change in the parameter from the middle of the vowel to the vowel’s end. These last two measurements will be called "delta" measurements. This method is not that unusual and was used by \citet{garellekAcousticDiscriminabilityComplex2020} for the phonation contrasts in !Xóõ.  
 
 %------------------------------------
 \section{Results of the linear discriminant analysis} \label{sec:LDAResults}
 %------------------------------------
 
+A Linear Discriminant Analysis (LDA: \cite{fisherUseMultipleMeasurements1936}) is a type of dimension reduction technique in statistics. What this means in practice is that an LDA takes multiple variables as the input to the model and reduces those multiple variables into a few new variables called Linear Discriminants (LD). These LDs are then used to identify which of the original variables have the greatest effect on the data. 
+
+In the case of SLZ phonation, each of the different acoustic measurements from \posscitet{kreimanUnifiedTheoryVoice2014} where treated as the variables that the LDA used to determine the new LDs. For the statistical model to not be unduly swayed by large numerical differences in the raw numbers it is standard that all variables are normalized. In this instance, all acoustic measurements proposed by the PMoP were normalized by speaker using a z-score transformation except for the measurements for formants and bandwidths which were normalized by speaker and vowel quality. Strength-of-Excitation (SoE) was normalized by speaker following \citet{garellekVoicingGlottalConsonants2021}. 
+
+The LDA produced three 
 \begin{figure}[!h]
 		\centering
-		\includegraphics[width=\linewidth]{Images/ld1xld2.png}
-		\caption{LD1 by LD2 with a 75\%CI ellipse around the values}
-		\label{fig:LD1LD2}
+		\includegraphics[width=\linewidth]{Images/ld1_density.png}
+		\caption{Density plot showing LD1 grouped by SLZ's phonation types.}
+		\label{fig:LD1}
 \end{figure}
 
-\begin{figure}{!h}
+\begin{figure}[!h]
 		\centering
-		\includegraphics[width=\linewidth]{Images/ld1xld3.png}
-		\caption{LD1 by LD3 with a 75\%CI ellipse around the values}
-		\label{fig:LD1LD3}
+		\includegraphics[width=\linewidth]{Images/ld2_density.png}
+		\caption{Density plot for LD2 grouped by SLZ's phonation types.}
+		\label{fig:LD2}
 \end{figure}
 
-\begin{figure}{!h}
+\begin{figure}[!h]
 		\centering
-		\includegraphics[width=\linewidth]{Images/ld2xld3.png}
-		\caption{LD2 by LD3 with a 75\%CI ellipse around the values}
-		\label{fig:LD2LD3}
+		\includegraphics[width=\linewidth]{Images/ld3_density.png}
+		\caption{Density plot for LD3 grouped by SLZ's phonation types.}
+		\label{fig:LD3}
 \end{figure}
 
 %------------------------------------
