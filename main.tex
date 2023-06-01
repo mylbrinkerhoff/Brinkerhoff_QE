@@ -353,8 +353,6 @@ Based on elicitation data collected from 2020-2022, SLZ has a more expansive dis
 
 One of the striking things in this is the lack of high tone with breathy phonation. This gap is interesting because of the long-time association of high pitch with breathiness \citep[a good overview–of this association and other phonation types–is found in][]{eslingVoiceQualityLaryngeal2019}. This breathy phonation and high tone gap are common across the Zapotecan languages (Campbell p.c.). Regarding breathy phonation in SLQZ, \citet{uchiharaToneRegistrogenesisQuiavini2016} offers some convincing evidence that the phonation originated in syllables with low tone and then spread to other tones via analogy. If this is also true for SLZ, then we should be able to find similar distributions that Uchihara observes when we compare SLZ to its closest relative, San Bartolomé Zoogocho Zapotec, which lacks a breathy phonation. Such an investigation would be important in understanding how breathy vowels originated in the Zapotecan family, but is beyond the scope of this paper.  
 
- 
-
 %------------------------------------
 \section{Methodology} \label{sec:Methods}
 %------------------------------------
@@ -374,10 +372,14 @@ A total of 1785 vowels were initially considered for analysis. Outliers were rem
 Because phonation in SLZ involves dynamic changes (i.e., glottalization occurring in the middle or end of the vowel for laryngealized and checked vowels) each acoustic parameter had three different measurements associated with it. These three measures are: the average over the entire vowel, the change in the parameter from the beginning to the middle of the vowel, and the change in the parameter from the middle of the vowel to the vowel’s end. These last two measurements will be called ``delta" measurements. This method is not that unusual and was used by \citet{garellekAcousticDiscriminabilityComplex2020} for the phonation contrasts in !Xóõ.  
 
 %------------------------------------
-\section{Results of the linear discriminant analysis} \label{sec:LDAResults}
+\section{Results} \label{sec:Results}
 %------------------------------------
 
-A Linear Discriminant Analysis (LDA: \cite{fisherUseMultipleMeasurements1936}) is a type of dimension reduction technique in statistics. What this means in practice is that an LDA takes multiple variables as the input to the model and reduces those multiple variables into a few new variables called linear discriminant functions (LD). These LDs are then used to identify which of the original variables have the greatest effect on the data. 
+%------------------------------------
+\subsection{Linear Discriminant Analysis} \label{sec:LDAResults}
+%------------------------------------
+
+A Linear Discriminant Analysis (LDA: \cite{fisherUseMultipleMeasurements1936}) is a type of dimension reduction technique in statistics. What this means in practice is that an LDA takes multiple variables as the input to the model and reduces those multiple variables into a few new variables called linear discriminant functions (LD). These LDs are then used to identify which of the original variables have the greatest effect on the data. For this study, an LDA was conducted in R \citep{rcoreteamLanguageEnvironmentStatistical2021} using the MASS package from \citet{venablesModernAppliedStatistics2002}.
 
 In the case of SLZ phonation, each of the different acoustic measurements from \posscitet{kreimanUnifiedTheoryVoice2014} were treated as the variables that the LDA used to determine the new LDs. For the statistical model to not be unduly swayed by large numerical differences in the raw numbers it is standard that all variables are normalized. In this instance, all acoustic measurements proposed by the PMoP were normalized by speaker using a z-score transformation except for the measurements for formants and bandwidths which were normalized by speaker and vowel quality. Strength-of-Excitation (SoE) was normalized by speaker following \citet{garellekVoicingGlottalConsonants2021}. 
 
@@ -432,8 +434,6 @@ LD2 is used to discriminate breathy and checked vowels from the other phonation 
 \end{figure}
 
 LD3 is used to discriminate laryngealized vowels from the other phonation types and is also highly associated with the same measures as LD1 except for SoE which is instead replaced by $\Delta$HNR \textless 2500 Hz (end) which represents the difference in HNR \textless 2500 Hz from the middle to the end of the vowel; see Figure~\ref*{fig:LD3}. 
-
-
 \begin{figure}[!h]
 		\centering
 		\includegraphics[width=\linewidth]{Images/ld3_density.png}
@@ -441,10 +441,22 @@ LD3 is used to discriminate laryngealized vowels from the other phonation types 
 		\label{fig:LD3}
 \end{figure}
 
+
 %------------------------------------
 \subsection{Statistical results on the output of the LDA} \label{sec:Stats}
 %------------------------------------
 
+The five resulting acoustic measures from the LDA were then analyzed for statistical significance through a mixed-effects linear regression using R's lme4 package \citep{batesFittingLinearMixedEffects2015}. In each linear regression model, the acoustic measures were treated as the dependent variable with phonation as the predictor the interaction between speaker and phonation was treated as a random variable as was each of the token words.\footnotetext{DV \thicksim Phonation + (Phonation|Speaker) + (1|Word)} When evaluating the mixed-effects linear regression models the modal vowel was also treated as the intercept of the model. This means that the results of each non-modal phonation type are made in reference to the modal vowel.  
+
+The first linear discriminant function was most strongly affected by HNR\textless 2500 Hz, HNR\textless 3500 Hz, and Strength-of-Excitation. The two HNR measures are associated with measures of periodicity but in different bandwidths. HNR\textless 2500 Hz is concerned with measuring periodicity below 2500 Hz. Because non-modal phonation is associated with aperiodicity we expect the values for breathy, checked, and laryngealized vowels to be lower than the values for modal vowels. As we see in Figure~\ref*{fig:HNR25}, the values for breathy, checked, and laryngealized vowels are all lower than the modal vowels. 
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\linewidth]{Images/HNR25.png}
+	\caption{Line graph showing the change of HNR\textless 2500 Hz across the vowels grouped by SLZ's phonation types.}
+	\label{fig:HNR25}
+\end{figure}
+
+When we turn to the mixed-effects linear regression model for HNR<2500 Hz, we observe that for every step of change in modal vowels all three values will change negatively with respect to the modal's values. However, only the changes in breathy and checked vowels are significant; see Table~\ref*{tab:HNR25}.
 \begin{table}[!h]
     \centering
     \caption{Results of the mixed-effects linear regression analysis for HNR < 2500 Hz.}
@@ -460,20 +472,38 @@ LD3 is used to discriminate laryngealized vowels from the other phonation types 
     \end{tabular}
 \end{table}
 
+When we turn to the acoustic measure HNR<3500 Hz, which measures periodicity below 3500 Hz, we see that the three non-modal phonation types all show lower values than modal vowels; see Figure~\ref*{fig:HNR35}. Similar to HNR<2500 Hz, these lower HNR values indicate that these phonation types show aperiodicity in their production. 
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\linewidth]{Images/HNR35.png}
+	\caption{Line graph showing the change of HNR\textless 3500 Hz across the vowels grouped by SLZ's phonation types.}
+	\label{fig:HNR35}
+\end{figure}
+
+In contrast to the mixed-effect linear regression model for HNR<2500 Hz, the mixed-effects linear regression for HNR\textless 3500 Hz shows that the differences we observe between the non-modal phonation types and the modal vowels are not statistically significant; see Table~\ref*{tab:HNR35}. 
 \begin{table}[!h]
     \centering
-    \caption{Results of the mixed-effects linear regression analysis for HNR < 500 Hz.}
-    \label{tab:HNR05}
+    \caption{Results of the mixed-effects linear regression analysis for HNR < 3500 Hz.}
+    \label{tab:HNR35}
     \begin{tabular}{lrrrrrl}
 	\lsptoprule
 					&  Estimate  & Std. Error & df & t value & p-value & \\
-    Modal       	&  0.14980  & 0.07553 & 9.64369 &  1.983 & 0.07652 & . \\  
-  	Breathy   		&  -0.05906 & 0.20426 & 6.38671 & -0.289 & 0.78162 &  \\
-	Checked    		&  -0.70904 & 0.16811 & 6.77873 & -4.218 & 0.00424 & ** \\
-	Laryngealized	&  -0.29020 & 0.23947 & 7.58130 & -1.212 & 0.26197 & \\
+    Modal       	&   0.10018  &  0.05403 & 150.80549 &  1.854 &  0.0657 & . \\  
+  	Breathy   		&  -0.33967  &  0.15350 &  9.77806  &-2.213 &  0.0519 & . \\
+	Checked    		&  -0.37542  &  0.17313 &  6.62514  &-2.168 &  0.0690 & . \\
+	Laryngealized	&  -0.09672  &  0.16999 & 20.16718  &-0.569 &  0.5757 & \\
     \lspbottomrule
     \end{tabular}
 \end{table}
+
+The last acoustic measure that was strongly associated with the first linear discriminant function was Strength-of-Excitation which is a measure of the intensity of voicing regardless of whatever noise might be in the signal. This SoE measure means that the closer the value is to zero the less intense the voicing is and indicates a constriction closure to the glottis \citep{mittalStudyEffectsVocal2014,garellekVoicingGlottalConsonants2021}. 
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\linewidth]{Images/SoE.png}
+	\caption{Line graph showing the change of Strength-of-Excitation across the vowels grouped by SLZ's phonation types.}
+	\label{fig:SOE}
+\end{figure}
 
 \begin{table}[!h]
     \centering
@@ -490,10 +520,33 @@ LD3 is used to discriminate laryngealized vowels from the other phonation types 
     \end{tabular}
 \end{table}
 
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\linewidth]{Images/HNR05.png}
+	\caption{Line graph showing the change of HNR < 500 Hz across the vowels grouped by SLZ's phonation types.}
+	\label{fig:HNR05}
+\end{figure}
+
+\begin{table}[!h]
+    \centering
+    \caption{Results of the mixed-effects linear regression analysis for HNR < 500 Hz.}
+    \label{tab:HNR05}
+    \begin{tabular}{lrrrrrl}
+	\lsptoprule
+					&  Estimate  & Std. Error & df & t value & p-value & \\
+    Modal       	&  0.14980  & 0.07553 & 9.64369 &  1.983 & 0.07652 & . \\  
+  	Breathy   		&  -0.05906 & 0.20426 & 6.38671 & -0.289 & 0.78162 &  \\
+	Checked    		&  -0.70904 & 0.16811 & 6.77873 & -4.218 & 0.00424 & ** \\
+	Laryngealized	&  -0.29020 & 0.23947 & 7.58130 & -1.212 & 0.26197 & \\
+    \lspbottomrule
+    \end{tabular}
+\end{table}
+
+
 \begin{table}[!h]
     \centering
     \caption{Results of the mixed-effects linear regression analysis for $ \Delta $ HNR<2500 Hz (end).}
-    \label{tab:SOE}
+    \label{tab:delta}
     \begin{tabular}{lrrrrrl}
 	\lsptoprule
 					&  Estimate  & Std. Error & df & t value & p-value & \\
