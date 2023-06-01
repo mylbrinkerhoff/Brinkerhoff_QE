@@ -377,16 +377,35 @@ Because phonation in SLZ involves dynamic changes (i.e., glottalization occurrin
 \section{Results of the linear discriminant analysis} \label{sec:LDAResults}
 %------------------------------------
 
-A Linear Discriminant Analysis (LDA: \cite{fisherUseMultipleMeasurements1936}) is a type of dimension reduction technique in statistics. What this means in practice is that an LDA takes multiple variables as the input to the model and reduces those multiple variables into a few new variables called Linear Discriminant functions (LD). These LDs are then used to identify which of the original variables have the greatest effect on the data. 
+A Linear Discriminant Analysis (LDA: \cite{fisherUseMultipleMeasurements1936}) is a type of dimension reduction technique in statistics. What this means in practice is that an LDA takes multiple variables as the input to the model and reduces those multiple variables into a few new variables called linear discriminant functions (LD). These LDs are then used to identify which of the original variables have the greatest effect on the data. 
 
 In the case of SLZ phonation, each of the different acoustic measurements from \posscitet{kreimanUnifiedTheoryVoice2014} were treated as the variables that the LDA used to determine the new LDs. For the statistical model to not be unduly swayed by large numerical differences in the raw numbers it is standard that all variables are normalized. In this instance, all acoustic measurements proposed by the PMoP were normalized by speaker using a z-score transformation except for the measurements for formants and bandwidths which were normalized by speaker and vowel quality. Strength-of-Excitation (SoE) was normalized by speaker following \citet{garellekVoicingGlottalConsonants2021}. 
 
-The LDA produced three linear discriminant functions 
+The number of LDs produced by the model is always the number of categories you are trying to predict minus one. Because SLZ has four phonation types, the LDA produced three LDs which accounted for 100\% of the variation in the data. The first linear discriminant (LD1) accounted for 53.24\% of the variation while the second (LD2) and third (LD3) linear discriminant functions accounted for 30.73\% and 16.03\% respectively. The confusion matrix from the LDA is shown in Table~\ref*{tab:Confusion}; overall, the accuracy of the model's classification was high, at 70.45\%. 
 
 \begin{table}[!h]
     \centering
+    \caption{Confusion matrix from the linear discriminate analysis.}
+    \label{tab:Confusion}
+    \begin{tabular}{lllll}
+	\lsptoprule
+	\begin{tabular}[c]{@{}l@{}}Actual → \\ Predicted ↓\end{tabular} & modal & breathy & checked & laryngealized \\
+	\hline
+	modal & 294 & 28 & 25 & 24 \\
+	breathy & 16 & 32 & 9 & 15 \\
+	checked & 13 & 5 & 22 & 3 \\
+	laryngealized & 4 & 6 & 3 & 12\\
+    \lspbottomrule
+    \end{tabular}
+\end{table}
+
+Modal vowels represent 64\% of the training data while breathy vowels represent 15.2\%, checked vowels represent 10.8\%, and laryngealized vowels represent 10\%.  Modal vowels were the most accurately discriminated (89.9\%), whereas laryngealized vowels were the least accurately discriminated (22.2\%). All phonation types are most confusable with modal ones. Additionally, laryngealized vowels were frequently confused with breathy vowels.
+
+Within each LD, the different acoustic measures are assigned a coefficient which indicates the strength that measure has on the LD. When evaluating which measures had the greatest strength you take the absolute value of the coefficient and look for the largest coefficients. The results of this evaluation produced the results reported in Table~\ref*{tab:LDA} (only the three strongest measures are show for each LD).
+\begin{table}[!h]
+    \centering
     \caption{Acoustic measures best captured by the three discriminant functions.}
-    \label{tab:HNR25}
+    \label{tab:LDA}
     \begin{tabular}{lll}
 	\lsptoprule
 	LD1  & LD2 & LD3  \\
@@ -395,6 +414,8 @@ The LDA produced three linear discriminant functions
     \lspbottomrule
     \end{tabular}
 \end{table}
+
+LD1 is used to discriminant modal vowels from the other phonation types and is most strongly associated with HNR \textless 2500 Hz, HNR \textless 3500 Hz, and SoE; see Figure~\ref*{fig:LD1}. LD2 is used to discriminate breathy and checked vowels from the other phonation types and is also most strongly associated with HNR \textless 2500 Hz and SoE. Additionally, HNR \textless 500 Hz is also strongly associated with LD2; see Figure~\ref*{fig:LD2}. LD3 is used to discriminate laryngealized vowels from the other phonation types and is also highly associated with the same measures as LD1 except for SoE which is instead replaced by $\Delta$HNR \textless 2500 Hz (end) which represents the difference in HNR \textless 2500 Hz from the middle to the end of the vowel. 
 
 \begin{figure}[!h]
 		\centering
