@@ -184,8 +184,8 @@ The \textsc{Psychoacoustic Model for Phonation} (PMoP; \cite{kreimanUnifiedTheor
     \hline
     Harmonic source spectral slope      & H1-H2 \\
                                         & H2-H4 \\
-	                                & H4-H2 kHz \\
-	                                & H2 kHz-H5 kHz \\
+	                                & H4-H2k Hz \\
+	                                & H2k Hz-H5k Hz \\
     Inharmonic source noise             & Harmonics-to-noise ratio \\
     Time-varying source characteristics & $f_0$ track \\
 	                                & Amplitude track \\
@@ -274,13 +274,13 @@ In SLZ, each consulted language expert would produce this vowel differently. One
 		\centering
 		\includegraphics[width=\linewidth]{Images/za'a.png}
 		\caption{\textit{za'a} `corncob'}
-		\label{fig:za'a}
+		\label{fig:FSRza'a}
 	\end{subfigure}%
 	\begin{subfigure}{.5\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{Images/xa'ag.png}
 		\caption{\textit{xa'ag} `topil'}
-		\label{fig:xa'ag}
+		\label{fig:FSRxa'ag}
 	\end{subfigure}	
 	\caption{Comparison of FSR's laryngealized vowels in \textit{za'a} `corncob' and \textit{xa'ag} `topil'}
 	\label{fig:FSRLaryngeal}
@@ -293,13 +293,13 @@ The other consultant only produces creaky voice for these vowels regardless of t
 		\centering
 		\includegraphics[width=\linewidth]{Images/RD_za'a.png}
 		\caption{\textit{za'a} `corncob'}
-		\label{fig:za'a}
+		\label{fig:RDza'a}
 	\end{subfigure}%
 	\begin{subfigure}{.5\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{Images/RD_xa'ag.png}
 		\caption{\textit{xa'ag} `topil'}
-		\label{fig:xa'ag}
+		\label{fig:RDxa'ag}
 	\end{subfigure}
 	\caption{Comparison of RD's laryngealized vowels in \textit{za'a} `corncob' and \textit{xa'ag} `topil'}
 	\label{fig:RDLaryngeal}
@@ -355,17 +355,17 @@ One of the striking things in this is the lack of high tone with breathy phonati
 \section{Methodology} \label{sec:Methods}
 %------------------------------------
 
-18 native language speakers of SLZ participate in this study (seven male). However, due to issues with annotation, I present data from 6 speakers (three male). All speakers live in Santiago Laxopa Cruz, Ixtlán, Oaxaca, Mexico. The data was collected using a Zoom H4n handheld recorder (44.1kHz, 16-bit). Participants were recorded saying approximately 76 words in isolation, and the carrier sentence \textit{shnia' X chone las} `I say X three times'. This phrase was repeated three times. 
+18 native language speakers of SLZ participated in this study (seven male). In this study, I present data from 6 speakers (three male). All speakers live in Santiago Laxopa Cruz, Ixtlán, Oaxaca, Mexico. The data was collected using a Zoom H4nPro handheld recorder (44.1kHz, 16-bit). Participants were recorded saying approximately 76 words in isolation, and the carrier sentence \textit{shnia' X chonhe lhas} [ʃniaˀ X tʃone ɾas] `I say X three times'. This phrase was repeated three times. 
 
 %------------------------------------
 \subsection{Acoustic measurements} \label{sec:Acoustics}
 %------------------------------------
 
-The vowels from the target words in carrier sentences were annotated in Praat \citep{boersmaPraatDoingPhonetics2021}. Following \citet{garellekAcousticDiscriminabilityComplex2020}, the vowel onset was set to the second glottal pulse following the onset (to avoid high-frequency noise due to noisy click releases), and the vowel offset was set to the last glottal pulse before the drop in amplitude of the following consonant. 
+The vowels from the target words in carrier sentences were annotated in Praat \citep{boersmaPraatDoingPhonetics2021}. Following \citet{garellekAcousticDiscriminabilityComplex2020}, the vowel onset was set to the second glottal pulse after the beginning of the vowel, and the vowel offset was set to the last glottal pulse before the drop in amplitude of the following consonant or change in formant amplitude when the following consonant was a sonorant (e.g., nasal). 
 
 VoiceSauce \citep{shueVOICESAUCEProgramVoice2009} was used to compute the different acoustic measurements across each vowel. Each vowel was resampled at 16kHZ. The fundamental frequency (\textit{f0}) was calculated using STRAIGHT \citep{kawaharaInstantaneousfrequencybasedPitchExtraction1998}. Formants and bandwidths were calculated using SNACK \citep{sjolanderSnackSoundToolkit2004}.
 
-A total of 1785 vowels were initially considered for analysis. Outliers were removed based on \textit{f0} and vowel formants distance. 28 vowels whose \textit{f0} had a Mahalanobis distance greater than 6 were removed as outliers. An additional 85 vowels were removed as outliers because their F1 and F2 had a standard deviation greater than 3. This resulted in a total of 1672 vowels being used for this analysis.
+A total of 1785 vowels were initially considered for analysis. Outliers were removed based on \textit{f0} and vowel formants distance. 28 vowels whose \textit{f0} had a Mahalanobis distance greater than 6 were removed as outliers.\footnote{The Mahalanobis distance is defined as the distance between a point $x$ and a distribution with mean $\mu$ and covariance matrix $\Sigma$. It is calculated using the following formula: $D(x) = \sqrt{ (x - \mu)^T \Sigma^{-1} (x - \mu) }$. It is often used for outlier detection, and points with a significantly large Mahalanobis distance from the distribution are considered potential outliers.} An additional 85 vowels were removed as outliers because their F1 and F2 had a standard deviation greater than 3. This resulted in a total of 1672 vowels being used for this analysis.
 
 Because phonation in SLZ involves dynamic changes (i.e., glottalization occurring in the middle or end of the vowel for laryngealized and checked vowels), each acoustic parameter had three different associated measurements. These three measures are the average over the entire vowel, the change in the parameter from the beginning to the middle of the vowel, and the change in the parameter from the middle to the vowel’s end. These last two measurements will be called ``delta" measurements. This method is not unusual and was used by \citet{garellekAcousticDiscriminabilityComplex2020} for the phonation contrasts in !Xóõ.  
 
@@ -379,13 +379,13 @@ Because phonation in SLZ involves dynamic changes (i.e., glottalization occurrin
 
 A Linear Discriminant Analysis (LDA: \cite{fisherUseMultipleMeasurements1936}) is a type of dimension reduction technique in statistics. What this means in practice is that an LDA takes multiple variables as the input to the model and reduces those multiple variables into a few new variables called linear discriminant functions (LD). These LDs are then used to identify which original variables affect the data most. For this study, an LDA was conducted in R \citep{rcoreteamLanguageEnvironmentStatistical2021} using the MASS package from \citet{venablesModernAppliedStatistics2002}.
 
-In the case of SLZ phonation, each of the different acoustic measurements from \posscitet{kreimanUnifiedTheoryVoice2014} were treated as the variables that the LDA used to determine the new LDs. For the statistical model to not be unduly swayed by large numerical differences in the raw numbers, it is standard that all variables are normalized. In this instance, all acoustic measurements proposed by the PMoP were normalized by speaker using a z-score transformation except for the measurements for formants and bandwidths, which were normalized by speaker and vowel quality. Strength-of-Excitation (SoE) was normalized by speaker following \citet{garellekVoicingGlottalConsonants2021}. 
+In the case of SLZ phonation, each of the different acoustic measurements from \posscitet{kreimanUnifiedTheoryVoice2014} were treated as the variables that the LDA used to determine the new LDs. For the statistical model to not be unduly swayed by large numerical differences in the raw numbers, it is standard that all variables are normalized. In this instance, all acoustic measurements proposed by the PMoP were standardized by speaker using a z-score transformation except for the formants and bandwidths, which were standardized by speaker and vowel quality. Strength-of-Excitation (SoE) was standardized by speaker following \citet{garellekVoicingGlottalConsonants2021} where each SoE value was: first log-normalized, then the maximum and minimum log(SoE) values were calculated for each speaker. Finally, the log(SoE) values were subtracted from the minimum value and divided by the difference between the maximum–minimum values.
 
-The LDA model was trained on 70\% of the total data and then tested on the remaining 30\%. The number of LDs produced by the model is always the number of categories you try to predict minus one. Because SLZ has four phonation types, the LDA produced three LDs which accounted for 100\% of the variation in the data. The first linear discriminant (LD1) accounted for 53.24\% of the variation, while the second (LD2) and third (LD3) linear discriminant functions accounted for 30.73\% and 16.03\%, respectively. The confusion matrix from the LDA is shown in Table~\ref{tab:Confusion}; overall, the accuracy of the model's classification was high, at 70.45\%. 
+The LDA model was trained on 70\% of the total data and then tested on the remaining 30\%. The number of LDs produced by the model is always the number of categories you try to predict minus one. Because SLZ has four phonation types, the LDA produced three LDs which accounted for 100\% of the variation in the data. The first linear discriminant (LD1) accounted for 53.24\% of the variation, while the second (LD2) and third (LD3) linear discriminant functions accounted for 30.73\% and 16.03\%, respectively. The confusion matrix from the LDA is shown in Table~\ref{tab:Confusion}; overall, the accuracy of the model's classification of the test set was 70.45\%, much higher than chance at 25\%.
 
 \begin{table}[!h]
     \centering
-    \caption{Confusion matrix from the linear discriminate analysis.}
+    \caption{Confusion matrix from the linear discriminate analysis for the testing set.}
     \label{tab:Confusion}
     \begin{tabular}{lllll}
 	\lsptoprule
@@ -404,7 +404,7 @@ Modal vowels represent 64\% of the training data, breathy vowels represent 15.2\
 Within each LD, the different acoustic measures are assigned a coefficient indicating the measure has strength on the LD. When evaluating which measures had the greatest strength you take the absolute value of the coefficient and look for the largest coefficients. This evaluation produced the results reported in Table~\ref{tab:LDA} (only the three strongest measures are shown for each LD).
 \begin{table}[!h]
     \centering
-    \caption{Acoustic measures best captured by the three discriminant functions.}
+    \caption{Acoustic measures with the highest absolute coefficient values for the three linear discriminant functions.}
     \label{tab:LDA}
     \begin{tabular}{lll}
 	\lsptoprule
@@ -431,7 +431,7 @@ LD2 discriminates breathy and checked vowels from the other phonation types and 
     \label{fig:LD2}
 \end{figure}
 
-LD3 is used to discriminate laryngealized vowels from the other phonation types and is also highly associated with the same measures as LD1 except for SoE, which is instead replaced by $\Delta$HNR \textless 2500 Hz (end), which represents the difference in HNR \textless 2500 Hz from the middle to the end of the vowel; see Figure~\ref*{fig:LD3}. 
+LD3 discriminates laryngealized vowels from the other phonation types and is also highly associated with the same measures as LD1 except for SoE, which is instead replaced by $\Delta$HNR \textless 2500 Hz (end), which represents the difference in HNR \textless 2500 Hz from the middle to the end of the vowel; see Figure~\ref*{fig:LD3}. 
 \begin{figure}[!h]
     \centering
     \includegraphics[width=.75\linewidth]{Images/ld3_density.png}
@@ -520,7 +520,7 @@ When evaluating this measure with a mixed-effects linear regression model, we ob
     \end{tabular}
 \end{table}
 
-The second linear discriminant function was similarly associated with HNR\textless 2500 Hz and SoE like they were for the first linear discriminant function. Instead of HNR\textless 3500 Hz, a different HNR measure strongly affected this second linear discriminant function. HNR\textless 500 Hz measure periodicity below 500 Hz. Table~\ref{fig:HNR05} shows that, like the other HNR measures, all three non-modal phonation types show a lower HNR value consistent with them being aperiodic. However, when the mixed-effects linear regression model was run on the acoustic measure, the only checked phonation reached significance; see Table~\ref{tab:HNR05}. 
+The second linear discriminant function was similarly associated with HNR\textless 2500 Hz and SoE like they were for the first linear discriminant function. Instead of HNR\textless 3500 Hz, a different HNR measure strongly affected this second linear discriminant function. HNR\textless 500 Hz measure periodicity below 500 Hz. Figure~\ref{fig:HNR05} shows that, like the other HNR measures, all three non-modal phonation types show a lower HNR value consistent with them being aperiodic. However, when the mixed-effects linear regression model was run on the acoustic measure, the only checked phonation reached significance; see Table~\ref{tab:HNR05}. 
 
 \begin{figure}[!h]
 	\centering
@@ -544,11 +544,11 @@ The second linear discriminant function was similarly associated with HNR\textle
     \end{tabular}
 \end{table}
 
-The third linear discriminant function only introduced one new acoustic measure. $ \Delta $ HNR<2500 Hz (end) measures the difference between the middle and end of the vowel for HNR\textless 2500 Hz. As seen in Figure~\ref{fig:HNR25}, the HNR measure changes most drastically from the middle of the vowel to the end of the vowel for checked phonation. The other phonation types also changed but nowhere as strongly as for checked phonation. This magnitude of change is reflected in the linear regression for $ \Delta $ HNR<2500 Hz (end), with checked phonation being the only one that showed actual statistical significance; see Table~\ref{tab:delta}. 
+The third linear discriminant function only introduced one new acoustic measure. $ \Delta $HNR<2500 Hz (end) measures the difference between the middle and end of the vowel for HNR\textless 2500 Hz. As seen in Figure~\ref{fig:HNR25}, the HNR measure changes most drastically from the middle of the vowel to the end of the vowel for checked phonation. The other phonation types also change but do not change as quickly. The difference can be seen in Figure~\ref{fig:HNR25} when we compare the values in the middle portion of the graph to those at the end for each phonation type. This magnitude of change is reflected in the linear regression for $ \Delta $ HNR<2500 Hz (end), with checked phonation being the only one that showed actual statistical significance; see Table~\ref{tab:delta}. 
 
 \begin{table}[!h]
     \centering
-    \caption{Results of the mixed-effects linear regression analysis for $ \Delta $ HNR<2500 Hz (end).}
+    \caption{Results of the mixed-effects linear regression analysis for $ \Delta $HNR<2500 Hz (end).}
     \label{tab:delta}
     \begin{tabular}{lrrrrrl}
 	\lsptoprule
@@ -565,13 +565,45 @@ The third linear discriminant function only introduced one new acoustic measure.
 \section{Discussion} \label{sec:Discussion}
 %------------------------------------
 
+%------------------------------------
+\subsection{Linear discriminant analysis discussion} \label{sec:DiscussionLDA}
+%------------------------------------
 The results of the linear discriminant analysis showed that the acoustic measures used in the PMoP are sufficient to account for the different phonation types in SLZ. The linear discriminant analysis performed well above chance at 70.45\%. The linear discriminant analysis further showed that each of the four could be discriminated by the three discriminant functions it produced. However, as mentioned above in Section~\ref{sec:LDAResults}, the linear discriminant analysis performed better at classifying some phonation types over others. The model could classify modal vowels best at almost 90\% accuracy; breathy vowels at 45\%; checked at 37\%; and laryngealized at 22\%. The confusion matrix in Table~\ref{tab:Confusion} shows that all nonmodal phonation types were predominantly confused with modal vowels. This is not too unsurprising because of the highly variable nature in which these nonmodal phonation types are produced. 
 
-The linear discriminant analysis additionally showed that the acoustic measures that contributed the most to the three linear discriminant functions were harmonic-to-noise ratios along three different bandwidths and strength-of-excitation. Even though these acoustic measures had the greatest association it does not mean that these are the only measures necessary to understand the phonation contrasts. Each linear discriminant function comprises a linear combination of all the acoustic measures and their associated coefficient. In more phonological terms, we can imagine these linear discriminant functions as the formula to derive each candidate's harmonic score within Harmonic Grammar \citep{smolenskyHarmonicMindNeural2006}. Just like in Harmonic Grammar
+The linear discriminant analysis additionally showed that the acoustic measures that contributed the most to the three linear discriminant functions were harmonic-to-noise ratios along three different bandwidths and strength-of-excitation. Even though these acoustic measures had the greatest association, it does not mean that these are the only measures necessary to understand the phonation contrasts. Each linear discriminant function comprises a linear combination of all the acoustic measures and their associated coefficient. In more phonological terms, we can imagine these linear discriminant functions similar to the formula phonologists use to derive each candidate's harmonic score within Harmonic Grammar \citep{smolenskyHarmonicMindNeural2006}. In Harmonic Grammar, each constraint contributes weight to the formula, with some constraints contributing a greater weight and others a lower weight; a linear discriminant function assigns a numerical coefficient to each acoustic measure. Just because one acoustic measure has a lower coefficient does not mean an acoustic measure is not important to how speakers produce or perceive the phonation contrasts in Zapotec. It is possible that a combination of several acoustic measures produces enough ``weight" to overcome the ``weight" of these harmonic-to-noise ratios. 
 
-This is especially true for laryngealized vowels, which the linear discriminant analysis performed the worst on at 22\% chance, which is below chance. As mentioned above in Section~\ref{sec:SLZ}, laryngealized vowels show the greatest variability in their production inter- and intra-speaker. For some productions of this vowel, speakers would produce a vowel with model phonation throughout its entirety. The only indication that the vowel was non-model was a small period of two to three glottal pulses that had a lower amplitude than the rest of the vowel, very similar to what \citet{gerfenProductionPerceptionLaryngealized2005} found for laryngealized vowels in Mixtec. At other times, the production was with a tense voice rather than a canonical creaky voice. 
+Instead of using the absolute value of the coefficients in the linear discriminant functions to determine which acoustic measures are to consider, another method is to take the mean predictive value of the three linear discriminant functions and determine the correlation values for each acoustic measure within each linear discriminant function. This is the method used by \citet{garellekAcousticDiscriminabilityComplex2020} for determining which acoustic measures to use in his analysis for !Xóõ. 
 
-Another aspect about laryngealized voice that the linear discriminant analysis revealed is that 
+Both methods have their merits, but using the coefficients of the acoustic measures instead of their correlations is in line with more general practices used in the statistical literature. Different acoustic measures have the strongest correlation when using this other method with this study's linear discriminant analysis. The three highest acoustic measures according to absolute correlation score for each linear discriminant function are reported in Table~\ref{tab:LDA2}. Evaluating these measures will be left for further analysis. 
+
+\begin{table}[!h]
+    \centering
+    \caption{Acoustic measures with the highest absolute correlations for the three linear discriminant functions.}
+    \label{tab:LDA2}
+    \begin{tabular}{lll}
+	\lsptoprule
+	LD1  & LD2 & LD3  \\
+	\hline
+    \begin{tabular}[c]{@{}l@{}}SoE \\ $f0$ \\ HNR < 1500 Hz\end{tabular} & \begin{tabular}[c]{@{}l@{}}$f0$\\ $\Delta$SoE (end)\\ B1\end{tabular} & \begin{tabular}[c]{@{}l@{}}$\Delta$SoE (end)\\ $\Delta$F3 (end)\\ $\Delta$HNR \textless 1500 Hz (beg)\end{tabular} \\
+    \lspbottomrule
+    \end{tabular}
+\end{table}
+
+%------------------------------------
+\subsection{Harmonic-to-noise ratio discussion} \label{sec:DiscussionHNR}
+%------------------------------------
+
+As previously mentioned, the acoustic measures that contributed the most ``weight" to the three linear discriminant functions were predominantly harmonic-to-noise ratios across three different bandwidths. Out of the three harmonic-to-noise ratios that the linear discriminant functions called out, all were highly significant for at least one non-modal phonation, except for HNR\textless 3500 Hz. This acoustic measure never reached significance; however, the \textit{p}-value for the breathy and checked non-modal phonations hovered very close to the alpha value of 0.05. HNR\textless 3500 Hz was not as informative because it subsumes the narrower bandwidths of \textless 500 Hz and \textless 2500 Hz with its wider bandwidth of \textless 3500 Hz. It is also important to remember that under the Psychoacoustic Model of Phonation (PMoP; \cite{kreimanUnifiedTheoryVoice2014}), a single acoustic measure is not more important than another, but the acoustic measures associated with the harmonic spectral slopes, the inharmonic source noise, the time-varying source characteristics, and the vocal tract transfer functions combined together tell a complete story of how phonation is produced in a language. 
+
+When relying on the coefficient values, the ``delta" score contributed little to the linear discriminant functions. This result is surprising, considering how the different phonation types behave dynamically, especially when distinguishing between laryngealized and checked vowels. One reason for this could be the same sample size reported in this paper of six speakers. It is very likely that the data from the remaining 12 speakers could improve the model and show the importance of these ``delta" scores. However, when we consider the correlation of the mean predictive value of the linear discriminant function and the acoustic measures instead of the ``weights", as shown in Table~\ref{tab:LDA2} above, these ``delta" scores make up the three highest correlations for the third linear discriminant function and the second highest correlation in the second linear discriminant function. This suggests that depending on evaluating by correlation of the linear discriminant functions and their component variables or evaluating the raw ``weight" of the acoustic measures could produce different outcomes. Accounting for why this is beyond the scope of this paper but will be left for further research. 
+
+%------------------------------------
+\subsection{Laryngealized vowel discussion} \label{sec:DiscussionLaryngealized}
+%------------------------------------
+
+When we focus on how well the linear discriminant analysis performed at classifying the different acoustic measures, we notice that the model did very poorly for laryngealized vowels, which the linear discriminant analysis performed the worst on at 22\% chance, which is below chance. As mentioned above in Section~\ref{sec:SLZ}, laryngealized vowels show the greatest variability in their production inter- and intra-speaker. For some productions of this vowel, speakers would produce a vowel with model phonation throughout its entirety. The only indication that the vowel was non-model was a small period of two to three glottal pulses that had a lower amplitude than the rest of the vowel, very similar to what \citet{gerfenProductionPerceptionLaryngealized2005} found for laryngealized vowels in Mixtec. At other times, the production was with a tense voice rather than a canonical creaky voice. 
+
+Another aspect of laryngealized voice that the linear discriminant analysis revealed is that 
 
 % Based on the results of the spectral-tilt measurements, there is some agreement and disagreement with established patterns in what measures capture the different phonations best. 
 
@@ -590,8 +622,8 @@ The vocal folds are also the primary articulator for phonation. \citet{ladefoged
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=.6\textwidth]{Phonation.png}
-	\caption{Simplified one-dimensional model for phonation. Based on \citet{ladefogedPreliminariesLinguisticPhonetics1971,gordonPhonationTypesCrosslinguistic2001}}.
-	\label{fig:Phonation2}
+	\caption{One-dimensional model for phonation. Based on \citet{ladefogedPreliminariesLinguisticPhonetics1971,gordonPhonationTypesCrosslinguistic2001}}.
+	\label{fig:Phonation}
 \end{figure}
 
 The LCH assumes phonation and tone are produced at the vocal folds and glottis. Because these same organs are responsible for these two phenomena, a mismatch exists in trying to have both simultaneously. It is assumed by the LCH that because of this issue, there needs to be strict ordering in the glottal gestures. This means the tonal gesture must be produced before or after the phonation gesture. The reason for this is that if the gestures overlap, there will be a perturbation of the tone, and the listeners will not be able to differentiate the tone reliably. The LCH assumes that there is a close link between production and perception. This assumption places the responsibility on making sure the acoustic cues are the most perceptually salient on the speaker. The speaker is responsible for producing both tone and phonation so that the listener can differentiate the different cues for both tone and phonation. These assumptions can best be represented by Figure~\ref{fig:GlottalGestures}. 
